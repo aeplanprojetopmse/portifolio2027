@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Institucional - PMSE</title>
+  
+  <!-- Fonte Medula One do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Medula+One&display=swap" rel="stylesheet">
+
+  <!-- Vue 3 e Vue Router 4 via CDN Global -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+
+    <!-- Folha de Estilos Externa Unificada -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ===================================================
+       ESTILOS GERAIS EMBUTIDOS (100% Livre de Cache Local)
+       =================================================== -->
+
+</head>
+<body>
+
+  <div id="app">
+    <!-- CABEÇALHO COM MENU E SUBMENUS -->
+    <header class="header">
+      <div class="header-inner">
+        <span class="marca-mobile">PMSE</span>
+
+        <!-- Botão Hambúrguer Mobile -->
+        <button type="button" class="btn-hamburguer" @click="alternarMenu" aria-label="Menu">
+          <span :class="{ 'linha-1': menuAberto }"></span>
+          <span :class="{ 'linha-2': menuAberto }"></span>
+          <span :class="{ 'linha-3': menuAberto }"></span>
+        </button>
+
+        <!-- MENU DE NAVEGAÇÃO -->
+        <nav class="menu" :class="{ 'menu-ativo': menuAberto }">
+          
+          <!-- 1. Início -->
+          <router-link to="/" class="nav-item" @click="fecharMenu">Início</router-link>
+
+          <!-- 2. Geral -->
+          <div class="nav-dropdown" :class="{ 'dropdown-aberto': submenuAberto === 'geral' }">
+            <div class="dropdown-trigger" @click="alternarSubmenu('geral')">
+              Geral <span class="seta">▾</span>
+            </div>
+            <div class="dropdown-menu">
+                <router-link to="/geral/impo" @click="fecharMenu">
+                  <img src="./src/impo/logo.png" class="menu-icon" alt="IMPO">
+                  <span>IMPO</span>
+                </router-link>
+                <router-link to="/geral/taticos" @click="fecharMenu">
+                  <img src="./src/taticos/logo.png" class="menu-icon" alt="Táticos">
+                  <span>Táticos</span>
+                </router-link>
+              </div>
+          </div>
+
+          <!-- 3. Unidades Especializadas (Grade de 2 Colunas) -->
+          <div class="nav-dropdown" :class="{ 'dropdown-aberto': submenuAberto === 'especializadas' }">
+            <div class="dropdown-trigger" @click="alternarSubmenu('especializadas')">
+              Especializadas <span class="seta">▾</span>
+            </div>
+            <div class="dropdown-menu menu-grid-2">
+                <router-link to="/especializadas/bope" @click="fecharMenu">
+                  <img src="./src/bope/logo.png" class="menu-icon" alt="BOPE">
+                  <span>BOPE</span>
+                </router-link>
+                <router-link to="/especializadas/bpati" @click="fecharMenu">
+                  <img src="./src/bpati/logo.png" class="menu-icon" alt="BPATI">
+                  <span>BPATI</span>
+                </router-link>
+                <router-link to="/especializadas/bprp" @click="fecharMenu">
+                  <img src="./src/bprp/logo.png" class="menu-icon" alt="BPRp">
+                  <span>BPRp</span>
+                </router-link>
+                <router-link to="/especializadas/bprv" @click="fecharMenu">
+                  <img src="./src/bprv/logo.png" class="menu-icon" alt="BPRv">
+                  <span>BPRv</span>
+                </router-link>
+                <router-link to="/especializadas/bptur" @click="fecharMenu">
+                  <img src="./src/bptur/logo.png" class="menu-icon" alt="BPTur">
+                  <span>BPTur</span>
+                </router-link>
+                <router-link to="/especializadas/caatinga" @click="fecharMenu">
+                  <img src="./src/caatinga/logo.png" class="menu-icon" alt="Caatinga">
+                  <span>Caatinga</span>
+                </router-link>
+                <router-link to="/especializadas/cipam" @click="fecharMenu">
+                  <img src="./src/cipam/logo.png" class="menu-icon" alt="CIPAM">
+                  <span>CIPAM</span>
+                </router-link>
+                <router-link to="/especializadas/cipcaes" @click="fecharMenu">
+                  <img src="./src/cipcaes/logo.png" class="menu-icon" alt="CIPCaes">
+                  <span>CIPCaes</span>
+                </router-link>
+                <router-link to="/especializadas/cto" @click="fecharMenu">
+                  <img src="./src/cto/logo.png" class="menu-icon" alt="CTO">
+                  <span>CTO</span>
+                </router-link>
+                <router-link to="/sociais/equoterapia" @click="fecharMenu">
+                  <img src="./src/equoterapia/logo.png" class="menu-icon" alt="Equoterapia">
+                  <span>Equoterapia</span>
+                </router-link>
+                <router-link to="/especializadas/getam" @click="fecharMenu">
+                  <img src="./src/getam/logo.png" class="menu-icon" alt="GETAM">
+                  <span>GETAM</span>
+                </router-link>
+                <router-link to="/especializadas/rpmon" @click="fecharMenu">
+                  <img src="./src/rpmon/logo.png" class="menu-icon" alt="RPMon">
+                  <span>RPMon</span>
+                </router-link>
+              </div>
+          </div>
+
+          <!-- 4. Projetos Sociais -->
+          <div class="nav-dropdown" :class="{ 'dropdown-aberto': submenuAberto === 'sociais' }">
+            <div class="dropdown-trigger" @click="alternarSubmenu('sociais')">
+              Sociais <span class="seta">▾</span>
+            </div>
+            <div class="dropdown-menu">
+              <router-link to="./src/bptran" @click="fecharMenu">
+                <img src="./src/bptran/logo.png" class="menu-icon" alt="Logo BPTran">
+                <span>Educação para o trânsito</span>
+              </router-link>
+              <router-link to="./src/judo" @click="fecharMenu">
+                <img src="./src/judo/logo.png" class="menu-icon" alt="Logo Judô">
+                <span>Judô</span>
+              </router-link>
+              <router-link to="./src/museu" @click="fecharMenu">
+                <img src="./src/museu/logo.png" class="menu-icon" alt="Logo Museu">
+                <span>Museu</span>
+              </router-link>
+              <router-link to="./src/proerd" @click="fecharMenu">
+                <img src="./src/proerd/logo.png" class="menu-icon" alt="Logo PROERD">
+                <span>PROERD</span>
+              </router-link>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <!-- ONDE AS VIEWS SÃO INJETADAS -->
+    <main class="conteudo">
+      <router-view></router-view>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+      <p>&copy; {{ anoAtual }} - Quartel do Comando Geral | Polícia Militar de Sergipe</p>
+    </footer>
+  </div>
+
+  <!-- ===================================================
+       IMPORTAÇÃO DE TODOS OS COMPONENTES / VIEWS
+       =================================================== -->
+  
+  <!-- 1. Home -->
+  <script src="js/views/Home.js"></script>
+
+  <!-- 2. Geral -->
+  <script src="js/views/Geral/Impo.js"></script>
+  <script src="js/views/Geral/Taticos.js"></script>
+
+  <!-- 3. Especializadas -->
+  <script src="js/views/especializadas/Bope.js"></script>
+  <script src="js/views/especializadas/Bpati.js"></script>
+  <script src="js/views/especializadas/Bprp.js"></script>
+  <script src="js/views/especializadas/Bprv.js"></script>
+  <script src="js/views/especializadas/Bptur.js"></script>
+  <script src="js/views/especializadas/Caatinga.js"></script>
+  <script src="js/views/especializadas/cipam.js"></script>
+  <script src="js/views/especializadas/Cipcaes.js"></script>
+  <script src="js/views/especializadas/Cto.js"></script>
+  
+  <script src="js/views/especializadas/Getam.js"></script>
+  <script src="js/views/especializadas/Rpmon.js"></script>
+
+  <!-- 4. Sociais -->
+  <script src="js/views/sociais/Bptran.js"></script>
+  <script src="js/views/sociais/Equoterapia.js"></script>
+  <script src="js/views/sociais/Judo.js"></script>
+  <script src="js/views/sociais/Museu.js"></script>
+  <script src="js/views/sociais/Proerd.js"></script>
+
+  <!-- ===================================================
+       INICIALIZAÇÃO DO ROTEADOR E DA APLICAÇÃO VUE
+       =================================================== -->
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

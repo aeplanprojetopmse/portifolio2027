@@ -46,30 +46,32 @@ window.Home = window.home = {
           <!-- Mensagem / Texto -->
           <div class="cmd-texto">
             <p>
-              O Comando-Geral da Polícia Militar do Estado de Sergipe dirige-se a 
-              Vossas Excelências para apresentar o Portfólio de Projetos. 
-              Este documento reúne as principais ações, investimentos e planejamentos 
-              estratégicos da corporação para o próximo ciclo, buscando consolidar 
-              um modelo de segurança pública cada vez mais moderno, técnico e eficiente 
-              no estado de Sergipe.
-            </p>
-            <p>
-              O avanço das nossas instituições depende diretamente da união de esforços 
-              nas esferas estadual e federal. O parlamento tem sido um parceiro fundamental 
-              da Polícia Militar, demonstrando sensibilidade e compromisso com a segurança 
-              de todos os sergipanos por meio do diálogo, do apoio legislativo e da destinação 
-              de recursos essenciais para as atividades da corporação.
-            </p>
-            <p>
-              Apresentamos sinceros agradecimentos a cada parlamentar pelo apoio contínuo. 
-              A indicação de emendas, o suporte às causas da segurança pública e a parceria 
-              institucional são indispensáveis para o sucesso das operações e para a devida 
-              proteção da sociedade.
-            </p>
-            <p>
-              Reiteramos o compromisso com o trabalho integrado e colocamos o 
-              Comando-Geral à disposição de Vossas Excelências.
-            </p>
+  Dirijo-me a Vossas Excelências para apresentar o Portfólio de 
+  Projetos 2027. Este documento reúne as principais ações, investimentos 
+  e planejamentos estratégicos da nossa corporação para o próximo 
+  ciclo, buscando consolidar um modelo de segurança pública cada 
+  vez mais moderno, técnico e eficiente no estado de Sergipe.
+</p>
+<p>
+  O avanço das nossas instituições depende diretamente da união 
+  de esforços nas esferas estadual e federal. O parlamento tem 
+  sido um parceiro fundamental da Polícia Militar, demonstrando 
+  sensibilidade e compromisso com a segurança de todos os sergipanos 
+  por meio do diálogo, do apoio legislativo e da destinação de 
+  recursos essenciais para as atividades da corporação.
+</p>
+<p>
+  Apresento meus sinceros agradecimentos a cada parlamentar pelo 
+  apoio contínuo. A indicação de emendas, o suporte às causas 
+  da segurança pública e a parceria institucional são indispensáveis 
+  para o sucesso das nossas operações e para a devida proteção 
+  da sociedade.
+</p>
+<p>
+  Reitero o meu compromisso com o trabalho integrado e coloco a 
+  Polícia Militar do Estado de Sergipe à disposição de Vossas 
+  Excelências.
+</p>
 
             <!-- BLOCO DE ASSINATURA -->
             <div class="cmd-assinatura-bloco">

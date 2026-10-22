@@ -31,7 +31,7 @@ window.Home = window.home = {
 
       <!-- 2. Seção da Mensagem do Comandante -->
       <section class="cmd-section">
-        <h3 class="cmd-titulo-secao">Mensagem do Comando-Geral</h3>
+        <h3 class="cmd-titulo-secao">Mensagem do Comandante-Geral da PMSE</h3>
 
         <div class="cmd-card">
           <!-- Foto do Comandante -->

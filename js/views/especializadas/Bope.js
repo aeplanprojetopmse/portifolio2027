@@ -1,0 +1,130 @@
+// js/views/especializadas/Bope.js
+window.Bope = {
+  name: 'Bope',
+  data() {
+    return {
+      chaveUnidade: 'bope', // Chave correspondente na planilha
+      titulo: 'Batalhão de Operações Policiais Especiais (BOPE)',
+      sigla: 'BOPE',
+      descricao: 'Unidade tática de pronta resposta da Polícia Militar de Sergipe destinada ao atendimento de ocorrências de altíssima complexidade, gerenciamento de crises, intervenção em ambientes hostis e ações contra o crime organizado.',
+      capa: './src/bope/capa.png',
+      logo: './src/bope/logo.png',
+      capaModo: 'cover',
+      capaPosicao: 'center 20%'
+    };
+  },
+  computed: {
+    materiais() {
+      return window.PortfolioStore ? window.PortfolioStore.obterMateriais('bope') : [];
+    },
+    carregando() {
+      return window.PortfolioStore ? window.PortfolioStore.carregando : false;
+    },
+    valorTotalGeral() {
+      return this.materiais.reduce((total, item) => total + (item.quantidade * item.valorUnitario), 0);
+    },
+    quantidadeTotalItens() {
+      return this.materiais.reduce((total, item) => total + item.quantidade, 0);
+    }
+  },
+  template: `
+    <div class="unidade-page">
+      
+      <!-- HERO COM A CAPA DA UNIDADE -->
+      <div class="unidade-hero"
+           :class="{ 'unidade-hero--contain': capaModo === 'contain' }"
+           :style="{ '--capa-pos': capaPosicao }">
+        <img v-if="capaModo === 'contain'" :src="capa" class="unidade-capa-bg" alt="" aria-hidden="true" />
+        <img :src="capa" :alt="'Capa ' + sigla" class="unidade-capa-img" />
+        <div class="unidade-hero-overlay"></div>
+        
+        <!-- LOGO SOBREPOSTO E TÍTULO -->
+        <div class="unidade-hero-content">
+          <div class="unidade-logo-badge">
+            <img :src="logo" :alt="'Brasão ' + sigla" />
+          </div>
+          <div class="unidade-hero-text">
+            <span class="unidade-tag">Unidade Especializada</span>
+            <h1>{{ titulo }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESCRITIVO DA UNIDADE -->
+      <section class="unidade-apresentacao">
+        <p>{{ descricao }}</p>
+      </section>
+
+      <!-- FEEDBACK VISUAL DE CARREGAMENTO -->
+      <div v-if="carregando" class="card-generico" style="text-align: center; padding: 2.5rem;">
+        <p style="font-size: 1.1rem; color: #1a2430; font-weight: bold;">
+          Carregando materiais do Portfólio a partir da base de dados...
+        </p>
+      </div>
+
+      <!-- SE JÁ CARREGOU MAS NÃO HÁ ITENS COM 'TRUE' NA PLANILHA -->
+      <div v-else-if="materiais.length === 0" class="card-generico" style="text-align: center; padding: 2rem;">
+        <p style="color: #64748b;">Nenhum material aprovado no portfólio para esta unidade no momento.</p>
+      </div>
+
+      <!-- QUANDO OS MATERIAIS ESTÃO CARREGADOS -->
+      <template v-else>
+        <!-- CARDS DE RESUMO (KPIs) -->
+        <div class="unidade-kpis">
+          <div class="kpi-card">
+            <span class="kpi-label">Tipos de Materiais</span>
+            <strong class="kpi-valor">{{ materiais.length }}</strong>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Total de Itens</span>
+            <strong class="kpi-valor">{{ quantidadeTotalItens }} un.</strong>
+          </div>
+          <div class="kpi-card kpi-destaque">
+            <span class="kpi-label">Investimento Total Previsto</span>
+            <strong class="kpi-valor">{{ formatarMoeda(valorTotalGeral) }}</strong>
+          </div>
+        </div>
+
+        <!-- TABELA DINÂMICA DE MATERIAIS -->
+        <section class="materiais-section">
+          <div class="materiais-header">
+            <h2>Portfólio de Equipamentos e Materiais</h2>
+            <span class="materiais-sub">Dados sincronizados diretamente da planilha do projeto</span>
+          </div>
+
+          <div class="tabela-responsiva">
+            <table class="tabela-materiais">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">Item</th>
+                  <th>Nome do Objeto</th>
+                  <th>Descrição Técnica</th>
+                  <th style="text-align: center;">Qtd</th>
+                  <th style="text-align: right;">Valor Unitário</th>
+                  <th style="text-align: right;">Valor Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in materiais" :key="item.id">
+                  <td class="col-num">{{ String(index + 1).padStart(2, '0') }}</td>
+                  <td class="col-nome"><strong>{{ item.nome }}</strong></td>
+                  <td class="col-desc">{{ item.descricao }}</td>
+                  <td class="col-qtd">{{ item.quantidade }}</td>
+                  <td class="col-moeda">{{ formatarMoeda(item.valorUnitario) }}</td>
+                  <td class="col-total">{{ formatarMoeda(item.valorTotal) }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="5" class="total-legenda">VALOR TOTAL DO PROJETO:</td>
+                  <td class="total-valor-final">{{ formatarMoeda(valorTotalGeral) }}</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </section>
+      </template>
+
+    </div>
+  `
+};

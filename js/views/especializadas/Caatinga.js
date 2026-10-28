@@ -4,7 +4,7 @@ window.Caatinga = {
   data() {
     return {
       chaveUnidade: 'caatinga',
-      titulo: 'Companhia Independente de Operações em Área de Caatinga (CIOPAC)',
+      titulo: 'Batalhão de Polícia de Caatinga (BPCaatinga)',
       sigla: 'Caatinga',
       descricao: 'Unidade de elite da Polícia Militar de Sergipe especializada em operações táticas rurais, rastreamento e combate em ambiente inóspito de semiárido (bioma Caatinga). Atua no enfrentamento a organizações criminosas do "novo cangaço", repressão ao roubo de gado e patrulhamento das divisas interestaduais.',
       capa: './src/caatinga/capa.png',

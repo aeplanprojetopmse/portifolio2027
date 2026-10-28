@@ -4,9 +4,9 @@ window.Cto = window.cto = window.CTO = {
   data() {
     return {
       chaveUnidade: 'cto',
-      titulo: 'Companhia Tática de Operações (CTO)',
+      titulo: 'Centro de Treinamento Operacional (CTO)',
       sigla: 'CTO',
-      descricao: 'Unidade de tropa de choque da Polícia Militar de Sergipe especializada em controle de distúrbios civis (CDC), intervenções táticas em estabelecimentos prisionais, cumprimento de mandados de reintegração de posse de alto risco, escolta de presos de alta periculosidade e policiamento em praças desportivas.',
+      descricao: ' Unidade voltada para a capacitação, instrução continuada e treinamento tático e operacional do efetivo policial.Abriga o estande de tiro da corporação.',
       capa: './src/cto/capa.png',
       logo: './src/cto/logo.png',
       capaModo: 'cover',

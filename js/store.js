@@ -1,8 +1,7 @@
 // js/store.js
 // CAMADA DE DADOS E ESTADO GLOBAL (STORE)
 
-const API_PORTFOLIO_URL = "https://script.google.com/macros/s/AKfycbxgEfoNozo1pyu8OJ8Pa2k_n4S8_T0Mocsp3VHLDeCyeSeHyJ9ErQjeel2_X-XXpTwg6Q/exec";
-
+const API_PORTFOLIO_URL = "https://script.google.com/macros/s/AKfycbzeK6gEasON7ZxE10HeYOr47evjWPkxJqQ0DBtVHd7patnI_ZOlpBVQxwuPZt9dzqbjYA/exec";
 window.PortfolioStore = Vue.reactive({
   carregando: true,
   erro: null,

@@ -107,7 +107,19 @@ window.Bope = {
               <tbody>
                 <tr v-for="(item, index) in materiais" :key="item.id">
                   <td class="col-num">{{ String(index + 1).padStart(2, '0') }}</td>
-                  <td class="col-nome"><strong>{{ item.nome }}</strong></td>
+                  <td class="col-nome">
+                                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+                                              <strong>{{ item.nome }}</strong>
+
+                                                <!-- ETIQUETA DA NATUREZA DA DESPESA -->
+                                                <span v-if="obterInfoNd(item).ativo" :class="['ribbon-wrapper', obterInfoNd(item).classe]">
+                                                  <span class="ribbon-corpo">
+                                                    <span class="nd-codigo">{{ obterInfoNd(item).codigo }}</span>
+                                                    <span class="nd-texto">{{ obterInfoNd(item).texto }}</span>
+                                                  </span>
+                                                </span>
+                                              </div>
+                                            </td>
                   <td class="col-desc">{{ item.descricao }}</td>
                   <td class="col-qtd">{{ item.quantidade }}</td>
                   <td class="col-moeda">{{ formatarMoeda(item.valorUnitario) }}</td>

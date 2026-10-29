@@ -799,3 +799,69 @@ html, body {
   .home-texto p, .cmd-texto p { font-size: 0.95rem; text-align: left; }
   .materiais-section { padding: 1.2rem; }
 }
+/* ===================================================
+   ETIQUETAS DE NATUREZA DA DESPESA (FITA / RIBBON)
+   =================================================== */
+
+/* Container que cria a dobra inferior esquerda */
+.ribbon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* A dobra sombreada embaixo da fita */
+.ribbon-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 7px;
+  height: 6px;
+  border-bottom-left-radius: 4px;
+}
+
+/* Corpo da fita com ponta de seta na direita */
+.ribbon-corpo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 3px 22px 3px 12px;
+  font-family: 'Medula One', cursive;
+  font-size: 1.55rem;
+  letter-spacing: 1.5px;
+  color: #000000;
+  line-height: 1;
+  border-top-left-radius: 4px;
+  white-space: nowrap;
+  
+  /* Cria a ponta de seta na direita */
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);
+}
+
+.nd-codigo {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nd-texto {
+  letter-spacing: 1px;
+}
+
+/* TIPO 1: INVESTIMENTO (4.4.90 - Azul Claro) */
+.ribbon-investimento .ribbon-corpo {
+  background-color: #a8c6eb;
+}
+.ribbon-investimento::before {
+  background-color: #7a9ecb; /* Sombra da dobra azul */
+}
+
+/* TIPO 2: CUSTEIO (3.3.90 - Amarelo / Dourado Claro) */
+.ribbon-custeio .ribbon-corpo {
+  background-color: #ebd89b;
+}
+.ribbon-custeio::before {
+  background-color: #c2ad6f; /* Sombra da dobra amarela */
+}

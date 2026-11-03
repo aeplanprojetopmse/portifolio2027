@@ -5,24 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio Institucional - PMSE</title>
   
-  <!-- Fonte Medula One do Google Fonts -->
+    <!-- 1. Resolve o 404 do Favicon (usa o brasão como ícone de aba) -->
+  <link rel="icon" type="image/png" href="./src/bope/logo.png">
+
+  <!-- 2. Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Medula+One&display=swap" rel="stylesheet">
 
-  <!-- Vue 3 e Vue Router 4 via CDN Global -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+  <!-- 3. Folha de Estilos ANTES do JavaScript (Elimina o aviso de layout forçado / FOUC) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 4. Versão de Produção do Vue (Mais leve, rápida e sem o aviso de dev) -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
 
   <!-- Camada de Dados (Store) -->
   <script src="js/store.js"></script>
-
-    <!-- Folha de Estilos Externa Unificada -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- ===================================================
-       ESTILOS GERAIS EMBUTIDOS (100% Livre de Cache Local)
-       =================================================== -->
 
 </head>
 <body>

@@ -10,7 +10,7 @@ window.Judo = {
       capa: './src/judo/capa.png',
       logo: './src/judo/logo.png',
       capaModo: 'cover',
-      capaPosicao: 'top'
+      capaPosicao: 'center 50%'
     };
   },
   computed: {

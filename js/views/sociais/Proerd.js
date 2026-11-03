@@ -10,7 +10,7 @@ window.Proerd = {
       capa: './src/proerd/capa.png',
       logo: './src/proerd/logo.png',
       capaModo: 'cover ',
-      capaPosicao: 'center 20% '
+      capaPosicao: 'top '
     };
   },
   computed: {

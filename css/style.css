@@ -1,3 +1,27 @@
+
+/* ===================================================
+   CURSORES ESTILO BRUSH / PINCEL
+   =================================================== */
+
+/* Cursor padrão do site (Pincel em repouso) */
+html, body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M3 3 L7 1 C9 3 9 5 8 8 L22 22 C23 23 23 25 21 27 L20 28 C18 30 16 30 15 29 L1 15 C-1 14 0 11 2 10 L8 8 C5 9 3 9 1 7 Z' fill='none'/%3E%3Cpath d='M2 3 L8 9 L6 11 L0 5 Z' fill='%23e5a93b'/%3E%3Cpath d='M7 8 L11 12 L10 13 L6 9 Z' fill='%2394a3b8'/%3E%3Cpath d='M10 11 L27 28 C28 29 30 29 31 28 C32 27 32 25 31 24 L14 7 Z' fill='%231a2430'/%3E%3Ccircle cx='2' cy='2' r='1.5' fill='%23e5a93b'/%3E%3C/svg%3E") 2 2, auto !important;
+}
+
+/* Cursor ao passar em botões e links clicáveis (Pincel com gota dourada de tinta) */
+a, 
+button, 
+.nav-item, 
+.dropdown-trigger, 
+.dropdown-item, 
+.btn-hamburguer, 
+[role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 3 L8 9 L6 11 L0 5 Z' fill='%23d97706'/%3E%3Cpath d='M7 8 L11 12 L10 13 L6 9 Z' fill='%23cbd5e1'/%3E%3Cpath d='M10 11 L27 28 C28 29 30 29 31 28 C32 27 32 25 31 24 L14 7 Z' fill='%230f172a'/%3E%3Ccircle cx='2' cy='2' r='2.5' fill='%23f59e0b' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/svg%3E") 2 2, pointer !important;
+}
+
+
+
+
 /* ===================================================
    RESET GERAL
    =================================================== */

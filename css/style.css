@@ -1,14 +1,14 @@
 
 /* ===================================================
-   CURSORES ESTILO BRUSH / PINCEL
+   CURSORES ESTILO PINCEL DE PINTURA (ALTA DEFINIÇÃO)
    =================================================== */
 
-/* Cursor padrão do site (Pincel em repouso) */
+/* 1. Pincel Padrão (Cabo de madeira + Virola metálica + Cerdas com tinta dourada) */
 html, body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M3 3 L7 1 C9 3 9 5 8 8 L22 22 C23 23 23 25 21 27 L20 28 C18 30 16 30 15 29 L1 15 C-1 14 0 11 2 10 L8 8 C5 9 3 9 1 7 Z' fill='none'/%3E%3Cpath d='M2 3 L8 9 L6 11 L0 5 Z' fill='%23e5a93b'/%3E%3Cpath d='M7 8 L11 12 L10 13 L6 9 Z' fill='%2394a3b8'/%3E%3Cpath d='M10 11 L27 28 C28 29 30 29 31 28 C32 27 32 25 31 24 L14 7 Z' fill='%231a2430'/%3E%3Ccircle cx='2' cy='2' r='1.5' fill='%23e5a93b'/%3E%3C/svg%3E") 2 2, auto !important;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M1 1 C1 5.5 3.5 9.5 7 12 L10 15 L26 28 C28 29.5 30 28.5 29.5 26.5 L15 10 L12 7 C9.5 3.5 5.5 1 1 1 Z' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M10 15 L26 28 C28 29.5 30 28.5 29.5 26.5 L15 10 Z' fill='%238B4513'/%3E%3Cpath d='M7 12 L10 15 L15 10 L12 7 Z' fill='%23cbd5e1' stroke='%2394a3b8' stroke-width='0.5'/%3E%3Cpath d='M1 1 C1 5.5 3.5 9.5 7 12 L12 7 C9.5 3.5 5.5 1 1 1 Z' fill='%232d1e12'/%3E%3Cpath d='M1 1 C1 3.5 2 5.5 4.5 6.5 L6.5 4.5 C5.5 2 3.5 1 1 1 Z' fill='%23e5a93b'/%3E%3Cline x1='8.5' y1='13.5' x2='13.5' y2='8.5' stroke='%23ffffff' stroke-width='0.8' opacity='0.8'/%3E%3C/svg%3E") 1 1, auto !important;
 }
 
-/* Cursor ao passar em botões e links clicáveis (Pincel com gota dourada de tinta) */
+/* 2. Pincel ao passar em links/botões (Com gota de tinta caindo da ponta) */
 a, 
 button, 
 .nav-item, 
@@ -16,7 +16,7 @@ button,
 .dropdown-item, 
 .btn-hamburguer, 
 [role="button"] {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 3 L8 9 L6 11 L0 5 Z' fill='%23d97706'/%3E%3Cpath d='M7 8 L11 12 L10 13 L6 9 Z' fill='%23cbd5e1'/%3E%3Cpath d='M10 11 L27 28 C28 29 30 29 31 28 C32 27 32 25 31 24 L14 7 Z' fill='%230f172a'/%3E%3Ccircle cx='2' cy='2' r='2.5' fill='%23f59e0b' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/svg%3E") 2 2, pointer !important;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M1 1 C1 5.5 3.5 9.5 7 12 L10 15 L26 28 C28 29.5 30 28.5 29.5 26.5 L15 10 L12 7 C9.5 3.5 5.5 1 1 1 Z' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M10 15 L26 28 C28 29.5 30 28.5 29.5 26.5 L15 10 Z' fill='%238B4513'/%3E%3Cpath d='M7 12 L10 15 L15 10 L12 7 Z' fill='%23cbd5e1' stroke='%2394a3b8' stroke-width='0.5'/%3E%3Cpath d='M1 1 C1 5.5 3.5 9.5 7 12 L12 7 C9.5 3.5 5.5 1 1 1 Z' fill='%232d1e12'/%3E%3Cpath d='M1 1 C1 3.5 2 5.5 4.5 6.5 L6.5 4.5 C5.5 2 3.5 1 1 1 Z' fill='%23f59e0b'/%3E%3Cline x1='8.5' y1='13.5' x2='13.5' y2='8.5' stroke='%23ffffff' stroke-width='0.8' opacity='0.8'/%3E%3Ccircle cx='3' cy='9' r='2' fill='%23e5a93b' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/svg%3E") 1 1, pointer !important;
 }
 
 

@@ -1,4 +1,30 @@
+/* ===================================================
+   EFEITO DE BRILHO (HOVER NAS CAPAS / AQUARELAS)
+   =================================================== */
 
+/* 1. Transição suave nas imagens da Home e das Unidades */
+.imagem-animada,
+.unidade-capa-img {
+  transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: filter, transform;
+}
+
+/* 2. Efeito ao passar o mouse (Aumenta o brilho, a saturação das cores e dá leve zoom) */
+.moldura-imagem:hover .imagem-animada,
+.unidade-hero:hover .unidade-capa-img {
+  filter: brightness(1.16) saturate(1.28) contrast(1.05);
+  transform: scale(1.025); /* Leve aproximação para destacar a arte */
+}
+
+/* 3. Transição na película escura da capa para revelar mais luminosidade */
+.unidade-hero-overlay {
+  transition: opacity 0.5s ease;
+}
+
+.unidade-hero:hover .unidade-hero-overlay {
+  opacity: 0.75; /* Acalma o degradê escuro para a luz da arte passar */
+}
 
 
 /* ===================================================

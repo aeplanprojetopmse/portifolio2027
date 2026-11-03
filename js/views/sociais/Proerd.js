@@ -9,7 +9,7 @@ window.Proerd = {
       descricao: 'Estratégia institucional de prevenção primária da Polícia Militar de Sergipe desenvolvida em parceria com as escolas públicas e privadas e as famílias. Policiais militares devidamente capacitados atuam como educadores sociais em sala de aula, orientando crianças e adolescentes a resistirem às pressões do meio, prevenindo o uso de drogas e a prática da violência, e estimulando tomadas de decisão seguras e responsáveis.',
       capa: './src/proerd/capa.png',
       logo: './src/proerd/logo.png',
-      capaModo: 'cover ',
+      capaModo: 'contain ',
       capaPosicao: 'center 50% '
     };
   },

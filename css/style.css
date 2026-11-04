@@ -13,7 +13,7 @@
 /* 2. Efeito ao passar o mouse (Aumenta o brilho, a saturação das cores e dá leve zoom) */
 .moldura-imagem:hover .imagem-animada,
 .unidade-hero:hover .unidade-capa-img {
-  filter: brightness(1.16) saturate(1.28) contrast(1.05);
+  filter: brightness(1.08) saturate(1.1) contrast(1.05);
   transform: scale(1.025); /* Leve aproximação para destacar a arte */
 }
 

@@ -747,121 +747,203 @@ html, body {
 /* ===================================================
    RESPONSIVIDADE (MOBILE / TELAS < 768px)
    =================================================== */
+/* ===================================================
+   AJUSTES RESPONSIVOS MOBILE (< 768px)
+   =================================================== */
 @media (max-width: 768px) {
-  .header-inner {
-    justify-content: space-between;
-    padding: 0.8rem 1.2rem;
+
+  /* -------------------------------------------------
+     1. HERO / CAPA (Faixa no rodapé e título menor)
+     ------------------------------------------------- */
+  .unidade-hero {
+    aspect-ratio: 16 / 11;
+    min-height: 240px;
+    position: relative;
   }
 
-  .marca-mobile {
-    display: block;
-  }
-
-  .btn-hamburguer {
-    display: flex;
-  }
-
-  .linha-1 { transform: translateY(11px) rotate(45deg); }
-  .linha-2 { opacity: 0; }
-  .linha-3 { transform: translateY(-11px) rotate(-45deg); }
-
-  .menu {
+  /* A etiqueta amarela vira a barra de rodapé da imagem */
+  .unidade-tag {
     position: absolute;
-    top: 100%;
+    bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #1a2430;
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-    max-height: 0;
-    overflow-y: auto;
-    transition: all 0.35s ease;
-  }
-
-  .menu.menu-ativo {
-    max-height: 80vh;
-    padding: 1rem 0;
-  }
-
-  .nav-item,
-  .dropdown-trigger {
-    font-size: 2rem !important;
-    padding: 0.8rem 1.5rem !important;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav-item::after,
-  .dropdown-trigger::after {
-    display: none;
-  }
-
-  .dropdown-menu,
-  .dropdown-menu.menu-grid-2 {
-    display: none;
-    position: static;
-    transform: none;
-    box-shadow: none;
-    background-color: #121921;
-    border-top: none;
-    border-left: 4px solid #e5a93b;
+    margin: 0;
+    padding: 6px 10px;
     border-radius: 0;
-    width: 100%;
-    min-width: 100%;
-    grid-template-columns: 1fr;
-    padding: 0.5rem 0 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    background-color: #e5a93b;
+    color: #1a2430;
+    font-weight: 700;
+    z-index: 4;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.25);
   }
 
-  .dropdown-aberto .dropdown-menu {
-    display: flex !important;
-    flex-direction: column;
+  /* Conteúdo reposicionado logo acima da faixa amarela */
+  .unidade-hero-content {
+    bottom: 2.2rem !important; /* Espaço para não cobrir a faixa amarela */
+    left: 0.9rem !important;
+    right: 0.9rem !important;
+    gap: 0.8rem !important;
+    align-items: center !important;
   }
 
-  .dropdown-menu a {
-    padding: 0.6rem 1rem;
-    font-size: 1.7rem !important;
-  }
-
-  .conteudo {
-    padding: 1.5rem 1rem;
-  }
-
-  .cmd-card {
-    flex-direction: column;
-    padding: 1.5rem 1.2rem;
-    gap: 1.8rem;
-  }
-
-  .cmd-foto-container {
-    flex: none;
-    max-width: 200px;
-  }
-
-  .cmd-foto {
-    max-height: 300px;
-  }
-
-  .unidade-hero {
-    aspect-ratio: 16 / 10;
-    min-height: 220px;
-    max-height: none;
-  }
-
+  /* Brasão mais compacto */
   .unidade-logo-badge {
-    width: 65px;
-    height: 65px;
+    width: 52px !important;
+    height: 52px !important;
+    padding: 4px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0;
   }
 
+  /* Título proporcional que não cobre a arte */
   .unidade-hero-text h1 {
-    font-size: 2.1rem;
+    font-size: 1.55rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: 1px !important;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.9) !important;
   }
 
-  .home-texto h2 { font-size: 2.4rem; }
-  .cmd-titulo-secao { font-size: 2.2rem; }
-  .home-texto p, .cmd-texto p { font-size: 0.95rem; text-align: left; }
-  .materiais-section { padding: 1.2rem; }
+  /* -------------------------------------------------
+     2. TABELA TRANSFORMADA EM CARDS (Zero rolagem horizontal)
+     ------------------------------------------------- */
+  .tabela-responsiva {
+    overflow-x: visible !important; /* Elimina a barra de rolagem horizontal */
+  }
+
+  .tabela-materiais thead {
+    display: none !important; /* Esconde o cabeçalho clássico no mobile */
+  }
+
+  .tabela-materiais,
+  .tabela-materiais tbody,
+  .tabela-materiais tr,
+  .tabela-materiais td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Cada linha vira um Card branco individual */
+  .tabela-materiais tbody tr {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #1a2430;
+    padding: 1.1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .tabela-materiais tbody td.col-num {
+    display: none; /* Oculta a numeração simples no card */
+  }
+
+  /* Nome do Objeto + Etiqueta de Despesa */
+  .tabela-materiais tbody td.col-nome {
+    padding: 0 0 0.6rem 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .tabela-materiais tbody td.col-nome strong {
+    font-size: 1.15rem;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Etiqueta Ribbon mais compacta no mobile */
+  .ribbon-corpo {
+    font-size: 1.3rem !important;
+    padding: 2px 18px 2px 10px !important;
+  }
+
+  /* Descrição Técnica */
+  .tabela-materiais tbody td.col-desc {
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .tabela-materiais tbody td.col-desc:empty {
+    display: none;
+  }
+
+  /* Linhas financeiras organizadas lado a lado */
+  .tabela-materiais tbody td.col-qtd,
+  .tabela-materiais tbody td.col-moeda,
+  .tabela-materiais tbody td.col-total {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 0.95rem;
+    text-align: right;
+  }
+
+  /* Rótulos automáticos via CSS */
+  .tabela-materiais tbody td.col-qtd::before {
+    content: "Quantidade:";
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .tabela-materiais tbody td.col-moeda::before {
+    content: "Valor Unitário:";
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .tabela-materiais tbody td.col-total::before {
+    content: "Subtotal:";
+    color: #1a2430;
+    font-weight: 700;
+  }
+
+  .tabela-materiais tbody td.col-total {
+    border-bottom: none;
+    padding-top: 0.6rem;
+    margin-top: 0.2rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 1.1rem;
+    color: #166534; /* Verde de destaque */
+    font-weight: 700;
+  }
+
+  /* Rodapé do Total Geral da Página */
+  .tabela-materiais tfoot,
+  .tabela-materiais tfoot tr {
+    display: block;
+    width: 100%;
+  }
+
+  .tabela-materiais tfoot tr {
+    background: #1a2430;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  .tabela-materiais tfoot td.total-legenda {
+    padding: 0;
+    font-size: 0.9rem;
+    color: #e5a93b;
+    text-align: left;
+  }
+
+  .tabela-materiais tfoot td.total-valor-final {
+    padding: 0;
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-align: right;
+  }
 }
 /* ===================================================
    ETIQUETAS DE NATUREZA DA DESPESA (FITA / RIBBON)

@@ -1,321 +1,672 @@
-/* ===================================================
-   EFEITO DE BRILHO (HOVER NAS CAPAS / AQUARELAS)
-   =================================================== */
+@media (min-width: 769px) {
+  .nav-dropdown:hover > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* 1. Transição suave nas imagens da Home e das Unidades */
-.imagem-animada,
-.unidade-capa-img {
-  transition: filter 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: filter, transform;
-}
+  .nav-dropdown:hover > .dropdown-menu.menu-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-/* 2. Efeito ao passar o mouse (Aumenta o brilho, a saturação das cores e dá leve zoom) */
-.moldura-imagem:hover .imagem-animada,
-.unidade-hero:hover .unidade-capa-img {
-  filter: brightness(1.08) saturate(1.1) contrast(1.05);
-  transform: scale(1.025); /* Leve aproximação para destacar a arte */
-}
-
-/* 3. Transição na película escura da capa para revelar mais luminosidade */
-.unidade-hero-overlay {
-  transition: opacity 0.5s ease;
-}
-
-.unidade-hero:hover .unidade-hero-overlay {
-  opacity: 0.75; /* Acalma o degradê escuro para a luz da arte passar */
-}
-
-
-/* ===================================================
-   CURSOR PINCEL DE AQUARELA (INVERTIDO - CLIQUE NATURAL)
-   =================================================== */
-
-/* 1. Cursor padrão (Corpo branco sólido com traço escuro) */
-html, body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cg transform='scale(1, -1) translate(0, -24)'%3E%3Cpath d='M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z' fill='%23ffffff' stroke='%231a2430' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 2 2, auto !important;
-}
-
-/* 2. Cursor ao passar em links e botões (Pincel preenchido com tinta dourada) */
-a, 
-button, 
-.nav-item, 
-.dropdown-trigger, 
-.dropdown-item, 
-.btn-hamburguer, 
-[role="button"] {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cg transform='scale(1, -1) translate(0, -24)'%3E%3Cpath d='M8.99997 11.2224L12.7778 15.0002M7.97485 20.975C6.60801 22.3419 4 22.0002 2 22.0002C3.0251 20.0002 1.65827 17.3921 3.0251 16.0253C4.39194 14.6585 6.60801 14.6585 7.97485 16.0253C9.34168 17.3921 9.34168 19.6082 7.97485 20.975ZM11.9216 15.9248L21.0587 6.05671C21.8635 5.18755 21.8375 3.83776 20.9999 3.00017C20.1624 2.16258 18.8126 2.13663 17.9434 2.94141L8.07534 12.0785C7.5654 12.5507 7.31043 12.7868 7.16173 13.0385C6.80514 13.6423 6.79079 14.3887 7.12391 15.0057C7.26283 15.2631 7.50853 15.5088 7.99995 16.0002C8.49136 16.4916 8.73707 16.7373 8.99438 16.8762C9.6114 17.2093 10.3578 17.195 10.9616 16.8384C11.2134 16.6897 11.4494 16.4347 11.9216 15.9248Z' fill='%23e5a93b' stroke='%231a2430' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 2 2, pointer !important;
+  .nav-dropdown:hover .seta {
+    transform: rotate(180deg);
+  }
 }
 
 /* ===================================================
-   RESET GERAL
+   HAMBÚRGUER MOBILE (ESTRUTURA BASE)
    =================================================== */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.btn-hamburguer {
+  display: none;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42px;
+  height: 36px;
 }
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
+.btn-hamburguer span {
+  display: block;
+  height: 3px;
   width: 100%;
-  overflow-x: hidden;
-  
-  /* Fallback caso a imagem demore a carregar */
-  background-color: #f8f7f5;
-  
-  /* Aplica a textura de tecido */
-  background-image: url('../src/fundo.jpg');
-  background-repeat: repeat;
-  background-attachment: fixed; /* O tecido fica fixo como uma tela de pintura enquanto o conteúdo rola */
-  
-  color: #2c3e50;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s all ease;
 }
 
-#app {
+/* ===================================================
+   CORPO PRINCIPAL (CONTEÚDO)
+   =================================================== */
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ===================================================
+   PÁGINA INICIAL (HOME)
+   =================================================== */
+.home-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  background: transparent; /* Garante que o app não cubra a textura */
-}
-
-/* ===================================================
-   HEADER & MENU PRINCIPAL
-   =================================================== */
-.header {
-  background-color: #1a2430;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  width: 100%;
-}
-
-.header-inner {
-  width: 100%;
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 0.8rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.marca-mobile {
-  display: none;
-  font-family: 'Medula One', cursive;
-  font-size: 2.2rem;
-  color: #ffffff;
-  letter-spacing: 2px;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 3.5rem;
 }
 
-/* ITENS DO TOPO (Links e Gatilhos) */
-.nav-item,
-.dropdown-trigger {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  font-family: 'Medula One', cursive !important;
-  font-size: 2.3rem !important;
-  letter-spacing: 2px;
-  color: #c7d2de !important;
-  text-decoration: none !important;
-  display: inline-flex;
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  position: relative;
-  padding: 0.2rem 0.4rem 0.5rem 0.4rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
-  transition: color 0.2s ease;
-  user-select: none;
+  gap: 1.8rem;
 }
 
-.dropdown-trigger .seta {
-  font-size: 1.1rem;
-  margin-left: 6px;
-  transition: transform 0.25s ease;
+.moldura-imagem {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: #e2e8f0;
 }
 
-/* Sublinhado Dourado */
-.nav-item::after,
-.dropdown-trigger::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #e5a93b;
-  border-radius: 2px;
-  transition: width 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+.imagem-animada {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: revelarCores 2.4s ease-out forwards;
 }
 
-.nav-item:hover,
-.nav-item.router-link-active,
-.dropdown-trigger:hover {
-  color: #ffffff !important;
+@keyframes revelarCores {
+  0% { filter: grayscale(100%); opacity: 0.8; }
+  100% { filter: grayscale(0%); opacity: 1; }
 }
 
-.nav-item:hover::after,
-.nav-item.router-link-active::after,
-.dropdown-trigger:hover::after {
+.home-texto {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.home-texto h2 {
+  font-family: 'Medula One', cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #1a2430;
+  margin-bottom: 0.8rem;
+}
+
+.home-texto p {
+  color: #4a5568;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+  word-wrap: break-word;
+}
+
+/* CARD DO COMANDANTE */
+.cmd-section {
   width: 100%;
 }
 
+.cmd-titulo-secao {
+  font-family: 'Medula One', cursive;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: #1a2430;
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.cmd-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  border-left: 6px solid #1a2430;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cmd-foto-container {
+  flex: 0 0 350px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.cmd-foto {
+  width: 100%;
+  max-height: 700px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+}
+
+.cmd-texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cmd-texto p {
+  color: #334155;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.cmd-assinatura-bloco {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cmd-assinatura-img {
+  max-height: 65px;
+  width: auto;
+  object-fit: contain;
+}
+
+.cmd-assinatura-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cmd-cargo {
+  font-weight: bold;
+  font-size: 1.08rem;
+  color: #1a2430;
+}
+
+.cmd-instituicao {
+  font-size: 0.92rem;
+  color: #64748b;
+}
+
 /* ===================================================
-   DROPDOWNS E ÍCONES DO MENU (CORRIGIDO)
+   VIEW DE UNIDADES (CAPA COM DUAL-MODE COVER/CONTAIN)
    =================================================== */
-.nav-dropdown {
+.unidade-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.unidade-hero {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  min-height: 300px;
+  max-height: 460px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #0e141b;
 }
 
-.dropdown-menu {
-  display: none;
+.unidade-capa-img {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #1a2430;
-  border-top: 3px solid #e5a93b;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
-  padding: 0.6rem 0;
-  min-width: 220px;
-  z-index: 1002;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--capa-pos, center);
+  display: block;
 }
 
-.dropdown-menu.menu-grid-2 {
-  min-width: 380px;
-  padding: 0.8rem;
-  gap: 4px;
+.unidade-capa-bg {
+  position: absolute;
+  inset: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  object-fit: cover;
+  filter: blur(18px) brightness(0.6);
 }
 
-/* Alinha o ícone e o texto perfeitamente lado a lado */
-.dropdown-menu a,
-.dropdown-item {
-  color: #cbd5e1 !important;
-  text-decoration: none !important;
-  font-family: 'Medula One', cursive !important;
-  font-size: 1.65rem !important;
+.unidade-hero--contain .unidade-capa-img {
+  object-fit: contain;
+}
+
+.unidade-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(14, 20, 27, 0.95) 0%,
+    rgba(14, 20, 27, 0.5) 25%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.unidade-hero-content {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.8rem;
+  right: 1.8rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.unidade-logo-badge {
+  width: 90px;
+  height: 90px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #e5a93b;
+}
+
+.unidade-logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.unidade-hero-text h1 {
+  font-family: 'Medula One', cursive;
+  font-size: 2.8rem;
   letter-spacing: 1.5px;
-  padding: 0.45rem 1.1rem;
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px;
-  white-space: nowrap;
-  transition: all 0.2s ease;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.unidade-tag {
+  display: inline-block;
+  background-color: #e5a93b;
+  color: #1a2430;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 8px;
   border-radius: 4px;
+  margin-bottom: 6px;
 }
 
-.dropdown-menu a:hover,
-.dropdown-menu a.router-link-active {
-  color: #e5a93b !important;
-  background-color: rgba(255, 255, 255, 0.08);
-  padding-left: 1.4rem;
+.unidade-apresentacao {
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 10px;
+  border-left: 5px solid #1a2430;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: justify;
 }
 
-/* ÍCONE DO LOGO: Proporção corrigida para 24x24 */
-.menu-icon {
-  width: 20px !important;
-  height: 20px !important;
-  object-fit: contain !important;
-  flex-shrink: 0 !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-  
-  /* Máscara redonda adicionada aqui */
-  border-radius: 50% !important;
-  overflow: hidden !important; 
+.unidade-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.kpi-card {
+  background: #ffffff;
+  padding: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 3px solid #cbd5e1;
+}
+
+.kpi-card.kpi-destaque {
+  border-top-color: #e5a93b;
+  background: #1a2430;
+  color: #ffffff;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.kpi-card.kpi-destaque .kpi-label {
+  color: #e5a93b;
+}
+
+.kpi-valor {
+  font-size: 1.8rem;
+  color: #1a2430;
+  font-weight: 700;
+}
+
+.kpi-card.kpi-destaque .kpi-valor {
+  color: #ffffff;
+}
+
+.materiais-section {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.materiais-header {
+  margin-bottom: 1.5rem;
+}
+
+.materiais-header h2 {
+  font-family: 'Medula One', cursive;
+  font-size: 2.6rem;
+  letter-spacing: 1.5px;
+  color: #1a2430;
+  margin-bottom: 4px;
+}
+
+.materiais-sub {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.tabela-responsiva {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabela-materiais {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 650px;
+}
+
+.tabela-materiais th {
+  background-color: #1a2430;
+  color: #ffffff;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tabela-materiais td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.tabela-materiais tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.col-num { font-weight: 700; color: #94a3b8; }
+.col-nome strong { color: #0f172a; }
+.col-desc { font-size: 0.88rem; color: #64748b; line-height: 1.4; }
+.col-qtd { text-align: center; font-weight: 600; }
+.col-moeda { text-align: right; white-space: nowrap; }
+.col-total { text-align: right; font-weight: 700; color: #0f172a; white-space: nowrap; }
+
+.tabela-materiais tfoot tr {
+  background-color: #f1f5f9;
+  border-top: 2px solid #cbd5e1;
+}
+
+.total-legenda {
+  text-align: right;
+  font-weight: 700;
+  color: #1a2430;
+  padding: 14px;
+}
+
+.total-valor-final {
+  text-align: right;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #166534;
+  padding: 14px;
+  white-space: nowrap;
 }
 
 /* ===================================================
-   AJUSTES RESPONSIVOS MOBILE (< 768px)
+   PÁGINAS GENÉRICAS
+   =================================================== */
+.pagina-generica {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pagina-generica h2 {
+  font-family: 'Medula One', cursive;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: #1a2430;
+  border-bottom: 2px solid #e5a93b;
+  padding-bottom: 0.5rem;
+}
+
+.card-generico {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* ===================================================
+   RODAPÉ
+   =================================================== */
+.footer {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+/* ===================================================
+   RESPONSIVIDADE (MOBILE / TELAS < 768px)
    =================================================== */
 @media (max-width: 768px) {
 
-  /* -------------------------------------------------
-     1. HERO / CAPA (Faixa no rodapé e título menor)
-     ------------------------------------------------- */
+  /* 1. RESTAURAÇÃO DO HEADER E BOTÃO HAMBÚRGUER */
+  .header-inner {
+    justify-content: space-between !important;
+    padding: 0.8rem 1.2rem !important;
+  }
+
+  .marca-mobile {
+    display: block !important;
+  }
+
+  .btn-hamburguer {
+    display: flex !important;
+  }
+
+  .linha-1 { transform: translateY(11px) rotate(45deg); }
+  .linha-2 { opacity: 0; }
+  .linha-3 { transform: translateY(-11px) rotate(-45deg); }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1a2430;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    max-height: 0;
+    overflow-y: auto;
+    transition: all 0.35s ease;
+  }
+
+  .menu.menu-ativo {
+    max-height: 80vh;
+    padding: 1rem 0;
+  }
+
+  .nav-item,
+  .dropdown-trigger {
+    font-size: 2rem !important;
+    padding: 0.8rem 1.5rem !important;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-item::after,
+  .dropdown-trigger::after {
+    display: none;
+  }
+
+  .dropdown-menu,
+  .dropdown-menu.menu-grid-2 {
+    display: none !important;
+    position: static;
+    transform: none;
+    box-shadow: none;
+    background-color: #121921;
+    border-top: none;
+    border-left: 4px solid #e5a93b;
+    border-radius: 0;
+    width: 100%;
+    min-width: 100%;
+    grid-template-columns: 1fr;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+
+  .dropdown-aberto .dropdown-menu {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .dropdown-menu a {
+    padding: 0.6rem 1rem;
+    font-size: 1.7rem !important;
+  }
+
+  .conteudo {
+    padding: 1.5rem 1rem;
+  }
+
+  /* 2. CARD DO COMANDANTE NO MOBILE */
+  .cmd-card {
+    flex-direction: column;
+    padding: 1.5rem 1.2rem;
+    gap: 1.8rem;
+  }
+
+  .cmd-foto-container {
+    flex: none;
+    max-width: 220px;
+  }
+
+  .cmd-foto {
+    max-height: 320px;
+  }
+
+  /* 3. CAPA / HERO: ETIQUETA SLIM NO RODAPÉ + BRASÃO E TÍTULO VISÍVEIS */
   .unidade-hero {
-    aspect-ratio: 16 / 11;
-    min-height: 240px;
+    aspect-ratio: 16 / 12;
+    min-height: 250px;
     position: relative;
   }
 
-  /* A etiqueta amarela vira a barra de rodapé da imagem */
+  /* Faixa amarela fininha fixada no rodapé da foto */
   .unidade-tag {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 6px 10px;
-    border-radius: 0;
-    text-align: center;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-    background-color: #e5a93b;
-    color: #1a2430;
-    font-weight: 700;
-    z-index: 4;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.25);
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 3px 6px !important;
+    height: 24px !important;
+    line-height: 18px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 1.5px !important;
+    background-color: #e5a93b !important;
+    color: #1a2430 !important;
+    font-weight: 800 !important;
+    z-index: 5 !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3) !important;
   }
 
-  /* Conteúdo reposicionado logo acima da faixa amarela */
+  /* Conteúdo logo acima da faixa amarela */
   .unidade-hero-content {
-    bottom: 2.2rem !important; /* Espaço para não cobrir a faixa amarela */
-    left: 0.9rem !important;
-    right: 0.9rem !important;
-    gap: 0.8rem !important;
+    bottom: 30px !important; /* Espaço para ficar logo acima da faixa de 24px */
+    left: 0.8rem !important;
+    right: 0.8rem !important;
+    gap: 0.7rem !important;
     align-items: center !important;
+    z-index: 4 !important;
   }
 
-  /* Brasão mais compacto */
+  /* Brasão compacto e nítido */
   .unidade-logo-badge {
-    width: 52px !important;
-    height: 52px !important;
-    padding: 4px !important;
-    border-radius: 8px !important;
-    flex-shrink: 0;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 3px !important;
+    border-radius: 6px !important;
+    border-width: 1.5px !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
   }
 
-  /* Título proporcional que não cobre a arte */
+  .unidade-hero-text {
+    flex: 1;
+    min-width: 0;
+  }
+
   .unidade-hero-text h1 {
-    font-size: 1.55rem !important;
+    font-size: 1.45rem !important;
     line-height: 1.05 !important;
-    letter-spacing: 1px !important;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.9) !important;
+    letter-spacing: 0.5px !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.95) !important;
+    margin: 0 !important;
   }
 
-  /* -------------------------------------------------
-     2. TABELA TRANSFORMADA EM CARDS (Zero rolagem horizontal)
-     ------------------------------------------------- */
+  /* 4. TABELA EM CARDS EMPILHADOS NO MOBILE */
   .tabela-responsiva {
-    overflow-x: visible !important; /* Elimina a barra de rolagem horizontal */
+    overflow-x: visible !important;
   }
 
   .tabela-materiais thead {
-    display: none !important; /* Esconde o cabeçalho clássico no mobile */
+    display: none !important;
   }
 
   .tabela-materiais,
@@ -326,7 +677,6 @@ html, body {
     width: 100%;
   }
 
-  /* Cada linha vira um Card branco individual */
   .tabela-materiais tbody tr {
     background: #ffffff;
     border-radius: 10px;
@@ -338,10 +688,9 @@ html, body {
   }
 
   .tabela-materiais tbody td.col-num {
-    display: none; /* Oculta a numeração simples no card */
+    display: none;
   }
 
-  /* Nome do Objeto + Etiqueta de Despesa */
   .tabela-materiais tbody td.col-nome {
     padding: 0 0 0.6rem 0;
     border-bottom: 1px solid #f1f5f9;
@@ -354,13 +703,11 @@ html, body {
     margin-bottom: 0.4rem;
   }
 
-  /* Etiqueta Ribbon mais compacta no mobile */
   .ribbon-corpo {
     font-size: 1.3rem !important;
     padding: 2px 18px 2px 10px !important;
   }
 
-  /* Descrição Técnica */
   .tabela-materiais tbody td.col-desc {
     padding: 0.6rem 0;
     font-size: 0.9rem;
@@ -373,7 +720,6 @@ html, body {
     display: none;
   }
 
-  /* Linhas financeiras organizadas lado a lado */
   .tabela-materiais tbody td.col-qtd,
   .tabela-materiais tbody td.col-moeda,
   .tabela-materiais tbody td.col-total {
@@ -386,19 +732,16 @@ html, body {
     text-align: right;
   }
 
-  /* Rótulos automáticos via CSS */
   .tabela-materiais tbody td.col-qtd::before {
     content: "Quantidade:";
     color: #64748b;
     font-weight: 500;
   }
-
   .tabela-materiais tbody td.col-moeda::before {
     content: "Valor Unitário:";
     color: #64748b;
     font-weight: 500;
   }
-
   .tabela-materiais tbody td.col-total::before {
     content: "Subtotal:";
     color: #1a2430;
@@ -411,11 +754,10 @@ html, body {
     margin-top: 0.2rem;
     border-top: 1px solid #e2e8f0;
     font-size: 1.1rem;
-    color: #166534; /* Verde de destaque */
+    color: #166534;
     font-weight: 700;
   }
 
-  /* Rodapé do Total Geral da Página */
   .tabela-materiais tfoot,
   .tabela-materiais tfoot tr {
     display: block;
@@ -445,4 +787,65 @@ html, body {
     color: #ffffff;
     text-align: right;
   }
+}
+
+/* ===================================================
+   ETIQUETAS DE NATUREZA DA DESPESA (FITA / RIBBON)
+   =================================================== */
+.ribbon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.ribbon-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 7px;
+  height: 6px;
+  border-bottom-left-radius: 4px;
+}
+
+.ribbon-corpo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 3px 22px 3px 12px;
+  font-family: 'Medula One', cursive;
+  font-size: 1.55rem;
+  letter-spacing: 1.5px;
+  color: #000000;
+  line-height: 1;
+  border-top-left-radius: 4px;
+  white-space: nowrap;
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);
+}
+
+.nd-codigo {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nd-texto {
+  letter-spacing: 1px;
+}
+
+/* 4.4.90 - Investimento */
+.ribbon-investimento .ribbon-corpo {
+  background-color: #a8c6eb;
+}
+.ribbon-investimento::before {
+  background-color: #7a9ecb;
+}
+
+/* 3.3.90 - Custeio */
+.ribbon-custeio .ribbon-corpo {
+  background-color: #ebd89b;
+}
+.ribbon-custeio::before {
+  background-color: #c2ad6f;
 }

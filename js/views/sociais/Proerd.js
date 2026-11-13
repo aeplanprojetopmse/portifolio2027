@@ -14,7 +14,7 @@ window.Proerd = window.proerd = {
 
       // COLE AQUI O LINK OU ID DO SEU VÍDEO DO YOUTUBE:
       // Aceita: 'https://www.youtube.com/watch?v=ID', 'https://youtu.be/ID' ou o código direto
-      videoYoutube: 'https://www.youtube.com/embed/SEU_CODIGO_AQUI'
+      videoYoutube: 'https://youtu.be/ccIf7toksFI?si=1vQ1nCwxjkUbXwat'
     };
   },
   computed: {
